@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/shared%20widgets/custom_appBar.dart';
+import 'package:notes_app/shared%20widgets/custom_note_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,8 +16,11 @@ class HomePage extends StatelessWidget {
              SizedBox(
               height: 50,
             ),
-            CustomAppBar(),
-
+             CustomAppBar(),
+             SizedBox(
+              height: 30,
+            ),
+            NoteWidget(),
           ],
         ),
       ),
