@@ -37,7 +37,7 @@ class NoteWidget extends StatelessWidget {
                 Text(
                   'Build your career with greet projects',
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 18,
                     color: Colors.black38,
                   ),
                 ),
@@ -48,7 +48,7 @@ class NoteWidget extends StatelessWidget {
               icon: const Icon(
                 FontAwesomeIcons.trash,
                 color: Colors.black,
-                size: 30,
+                size: 24,
               ),
             ),
           ),

@@ -9,7 +9,7 @@ class NotesListView extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10),
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) => const Padding(
-        padding:  EdgeInsets.only(bottom: 10),
+        padding:  EdgeInsets.only(bottom: 5),
         child:  NoteWidget(),
       ),
     );
