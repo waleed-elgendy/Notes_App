@@ -10,25 +10,25 @@ class EditNote extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             CustomAppBar(
               text: "Edit",
-              icon: IconButton(icon: Icon(FontAwesomeIcons.check),onPressed: (){},),
+              icon: IconButton(icon: const Icon(FontAwesomeIcons.check),onPressed: (){},),
             ),
-            SizedBox(height: 24,),
-            CustomTextField(
+            const SizedBox(height: 24,),
+            const CustomTextField(
               hint: 'Title',
               maxlines: 1,
             ),
-            SizedBox(height: 16,),
-            CustomTextField(
+            const SizedBox(height: 16,),
+            const CustomTextField(
               hint: 'Content',
               maxlines: 7,
             ),
-            SizedBox(height: 80),
+            const SizedBox(height: 80),
 
           ],
         ),
