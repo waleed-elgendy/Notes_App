@@ -4,14 +4,14 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     required this.hint,
     super.key,
-    required this.vContent,
-    required this.hContent,
+    @required this.maxlines,
   });
-  final double vContent, hContent;
+  final int? maxlines;
   final String hint;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLines: maxlines,
       decoration: InputDecoration(
           enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
@@ -22,8 +22,7 @@ class CustomTextField extends StatelessWidget {
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
               borderRadius: BorderRadius.all(Radius.circular(12))),
-          contentPadding:
-               EdgeInsets.symmetric(vertical: vContent, horizontal: hContent),
+          contentPadding: const EdgeInsets.symmetric(vertical: 25, horizontal: 10),
           hintText: hint),
     );
   }

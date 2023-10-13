@@ -23,13 +23,16 @@ class HomePage extends StatelessWidget {
         },
         child: const Icon(Icons.add),
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+      body:  Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            SizedBox(height: 50),
-            CustomAppBar(),
-            Expanded(
+            const SizedBox(height: 50),
+            CustomAppBar(
+              text: "Title",
+              icon: IconButton(icon: const Icon(Icons.search_outlined),onPressed: (){},),
+            ),
+            const Expanded(
               child: NotesListView(),
             )
           ],

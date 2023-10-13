@@ -13,12 +13,11 @@ class AddNote extends StatelessWidget {
             padding: EdgeInsets.only(top: 30, bottom: 15, right: 15, left: 15),
             child: CustomTextField(
               hint: 'Title',
-              vContent: 25,
-              hContent: 10,
+              maxlines: 1,
             )),
         Padding(
           padding: EdgeInsets.only(top: 5, right: 15, left: 15),
-          child: CustomTextField(hint: 'Content', vContent: 80, hContent: 10),
+          child: CustomTextField(hint: 'Content',maxlines: 7,),
         ),
         SizedBox(height: 80),
         CustomButton(text: 'Add')
