@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/shared_widgets/custom_appBar.dart';
-import 'package:notes_app/shared_widgets/custom_text_field.dart';
+import 'package:notes_app/shared_widgets/custom_text_form_field.dart';
 
 class EditNote extends StatelessWidget {
   const EditNote({Key? key}) : super(key: key);

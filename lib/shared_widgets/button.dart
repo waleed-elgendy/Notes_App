@@ -14,15 +14,15 @@ class CustomButton extends StatelessWidget {
             const EdgeInsets.only(top: 30, left: 15, right: 15, bottom: 15),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.lightBlue,
-            borderRadius: BorderRadius.circular(12),
+            color: const Color(0xff58dcba),
+            borderRadius: BorderRadius.circular(8),
           ),
           width: double.infinity,
           height: 40,
           child:  Center(
             child: Text(
               text,
-              style: const TextStyle(color: Colors.white, fontSize: 26),
+              style: const TextStyle(color: Colors.black, fontSize: 26),
             ),
           ),
         ),
