@@ -5,5 +5,6 @@ abstract class ViewNotesStates {}
 
 class ViewNotesInitial extends ViewNotesStates {}
 
-
+class ViewNotesSuccess extends ViewNotesStates{
+}
 
