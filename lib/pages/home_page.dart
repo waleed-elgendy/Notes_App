@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/view_notes_cubit/view_note_cubit.dart';
 import 'package:notes_app/shared_widgets/add_note_bottom_sheet.dart';
-import 'package:notes_app/shared_widgets/custom_appBar.dart';
-import 'package:notes_app/shared_widgets/notes_listView.dart';
+import 'package:notes_app/shared_widgets/notes_view_body.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+              isScrollControlled: true,
               shape: const OutlineInputBorder(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(24),
@@ -23,20 +25,9 @@ class HomePage extends StatelessWidget {
         },
         child: const Icon(Icons.add),
       ),
-      body:  Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          children: [
-            const SizedBox(height: 50),
-            CustomAppBar(
-              text: "Notes",
-              icon: IconButton(icon: const Icon(Icons.search_outlined),onPressed: (){},),
-            ),
-            const Expanded(
-              child: NotesListView(),
-            )
-          ],
-        ),
+      body: BlocProvider(
+        create: (context) => ViewNotesCubit(),
+        child: const NotesViewBody(),
       ),
     );
   }

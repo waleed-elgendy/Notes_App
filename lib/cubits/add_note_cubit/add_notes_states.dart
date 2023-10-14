@@ -3,7 +3,7 @@ part of 'add_note_cubit.dart';
 
 class AddNotesStates {}
 
-class NotesInitial extends AddNotesStates {}
+class AddNotesInitial extends AddNotesStates {}
 
 class AddNoteLoading extends AddNotesStates {}
 

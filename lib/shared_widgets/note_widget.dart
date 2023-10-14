@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/pages/edit_note_page.dart';
 class NoteWidget extends StatelessWidget {
   const NoteWidget({
-    super.key,
+    super.key, required this.note,
   });
-
+final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,29 +24,30 @@ class NoteWidget extends StatelessWidget {
           bottom: 28,
         ),
         decoration: BoxDecoration(
-          color: const Color(0xffFCC679),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(18),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter tips',
-                style: TextStyle(
+              title:  Text(
+                note.title,
+                style: const TextStyle(
                   fontSize: 26,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: const Column(
+              subtitle:  Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Text(
-                    'Build your career with greet projects',
-                    style: TextStyle(
+                    note.content,
+                    style: const TextStyle(
                       fontSize: 18,
                       color: Colors.black38,
                     ),
@@ -64,11 +66,11 @@ class NoteWidget extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const Padding(
-              padding:  EdgeInsets.only(right: 24),
+             Padding(
+              padding:  const EdgeInsets.only(right: 24),
               child:  Text(
-                'may 21,2,2022',
-                style: TextStyle(
+                note.date.substring(0,10),
+                style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black38,
                 ),

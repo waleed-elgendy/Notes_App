@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'add_notes_states.dart';
 
 class AddNotesCubit extends Cubit<AddNotesStates> {
-  AddNotesCubit() : super(NotesInitial());
+  AddNotesCubit() : super(AddNotesInitial());
 
   addNote(NoteModel note) async{
     emit(AddNoteLoading());
    try{
-     var notesBox = Hive.box('notes_box');
+     var notesBox = Hive.box<NoteModel>('notes_box');
      await notesBox.add(note);
      emit(AddNoteSuccess());
    }catch(e){

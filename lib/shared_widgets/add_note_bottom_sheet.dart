@@ -19,11 +19,16 @@ class AddNote extends StatelessWidget {
             Navigator.pop(context);
           }
         },
-        builder: (BuildContext context, state) {
+        builder: (context, state) {
           return AbsorbPointer(
             absorbing: state is AddNoteLoading ? true : false,
-            child: const SingleChildScrollView(
-              child: AddNoteForm(),
+            child: Padding(
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: const SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: AddNoteForm(),
+              ),
             ),
           );
         },
