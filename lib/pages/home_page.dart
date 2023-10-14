@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
           children: [
             const SizedBox(height: 50),
             CustomAppBar(
-              text: "Title",
+              text: "Notes",
               icon: IconButton(icon: const Icon(Icons.search_outlined),onPressed: (){},),
             ),
             const Expanded(
