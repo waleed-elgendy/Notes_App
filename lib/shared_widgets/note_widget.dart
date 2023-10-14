@@ -55,7 +55,9 @@ final NoteModel note;
                 ],
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                },
                 icon: const Icon(
                   FontAwesomeIcons.trash,
                   color: Colors.black,
@@ -69,7 +71,7 @@ final NoteModel note;
              Padding(
               padding:  const EdgeInsets.only(right: 24),
               child:  Text(
-                note.date.substring(0,10),
+                note.date,
                 style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black38,
