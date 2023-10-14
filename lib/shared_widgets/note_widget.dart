@@ -16,7 +16,7 @@ final NoteModel note;
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const EditNote(),
+              builder: (context) =>  EditNote(note: note),
             ));
       },
       child: Container(
