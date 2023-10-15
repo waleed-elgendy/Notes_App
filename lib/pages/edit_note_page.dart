@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/cubits/view_notes_cubit/view_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
+import 'package:notes_app/shared_widgets/colors_list_view.dart';
 import 'package:notes_app/shared_widgets/custom_appBar.dart';
 import 'package:notes_app/shared_widgets/custom_text_form_field.dart';
 
@@ -57,10 +58,66 @@ class _EditNoteState extends State<EditNote> {
               hint: widget.note.content,
               maxlines: 7,
             ),
-            const SizedBox(height: 80),
+            const SizedBox(
+              height: 15,
+            ),
+             EditNoteColorList(
+              note: widget.note,
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class EditNoteColorList extends StatefulWidget {
+  const EditNoteColorList({Key? key, required this.note})
+      : super(key: key);
+  final NoteModel note;
+  @override
+  State<EditNoteColorList> createState() => _EditNoteColorListState();
+}
+
+class _EditNoteColorListState extends State<EditNoteColorList> {
+  late int currentIndex  ;
+
+  List<Color> colors = const [
+    Color(0xffDD614A),
+    Color(0xff634B66),
+    Color(0xffE8C547),
+    Color(0xff7CC6FE),
+    Color(0xff21A0A0),
+  ];
+@override
+  void initState() {
+  currentIndex=colors.indexOf(Color(widget.note.color));
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 28 * 2,
+      child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          itemCount: colors.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: GestureDetector(
+                onTap: () {
+                  currentIndex = index;
+                  widget.note.color=colors[index].value;
+                  setState(() {});
+                },
+                child: ColorItem(
+                  color: colors[index],
+                  isSelected: currentIndex == index,
+                ),
+              ),
+            );
+          }),
     );
   }
 }
