@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/shared_widgets/button.dart';
+import 'package:notes_app/shared_widgets/colors_list_view.dart';
 import 'package:notes_app/shared_widgets/custom_text_form_field.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -47,6 +48,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
             ),
           ),
           const SizedBox(height: 30),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 11),
+            child: ColorsListView(),
+          ),
+          const SizedBox(height: 30),
           BlocBuilder<AddNotesCubit, AddNotesStates>(builder: (context, state) {
             return CustomButton(
               isLoading: state is AddNoteLoading ? true : false,
@@ -71,3 +77,4 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
