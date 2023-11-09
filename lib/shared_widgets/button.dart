@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
+  CustomButton(
       {Key? key, required this.text, this.ontap, this.isLoading = false})
       : super(key: key);
   final String text;
@@ -13,27 +14,26 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: ontap,
       child: Padding(
-        padding:
-            const EdgeInsets.only( left: 15, right: 15, bottom: 15),
+        padding: EdgeInsets.only(left: 15.w, right: 15.w, bottom: 15.h),
         child: Container(
           decoration: BoxDecoration(
             color: const Color(0xff58dcba),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.dm),
           ),
           width: double.infinity,
-          height: 50,
+          height: 50.h,
           child: Center(
             child: isLoading
-                ? const SizedBox(
-                    height: 24,
-                    width: 24,
-                    child: CircularProgressIndicator(
+                ? SizedBox(
+                    height: 24.h,
+                    width: 24.w,
+                    child: const CircularProgressIndicator(
                       color: Colors.black,
                     ),
                   )
                 : Text(
                     text,
-                    style: const TextStyle(color: Colors.black, fontSize: 26),
+                    style: TextStyle(color: Colors.black, fontSize: 26.sp),
                   ),
           ),
         ),

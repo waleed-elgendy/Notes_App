@@ -5,6 +5,7 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
 import 'pages/home_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -23,14 +24,20 @@ class NotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ViewNotesCubit(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          fontFamily: "Poppins",
-        ),
-        home: const HomePage(),
-      ),
+      child: ScreenUtilInit(
+          designSize: const Size(411.42857142857144, 843.4285714285714),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (context, child) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                brightness: Brightness.dark,
+                fontFamily: "Poppins",
+              ),
+              home: const HomePage(),
+            );
+          }),
     );
   }
 }

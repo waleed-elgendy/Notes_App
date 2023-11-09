@@ -1,6 +1,5 @@
 part of 'add_note_cubit.dart';
 
-
 class AddNotesStates {}
 
 class AddNotesInitial extends AddNotesStates {}

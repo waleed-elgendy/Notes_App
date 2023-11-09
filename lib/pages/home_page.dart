@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:notes_app/shared_widgets/add_note_bottom_sheet.dart';
 import 'package:notes_app/shared_widgets/notes_view_body.dart';
 
@@ -12,10 +13,10 @@ class HomePage extends StatelessWidget {
         onPressed: () {
           showModalBottomSheet(
               isScrollControlled: true,
-              shape: const OutlineInputBorder(
+              shape: OutlineInputBorder(
                   borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(24),
-                      topLeft: Radius.circular(24))),
+                      topRight: Radius.circular(24.dm),
+                      topLeft: Radius.circular(24.dm))),
               context: context,
               builder: (context) {
                 return const AddNote();

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/cubits/view_notes_cubit/view_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
@@ -21,14 +22,19 @@ class _EditNoteState extends State<EditNote> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
         child: Column(
           children: [
-            const SizedBox(height: 50),
+            SizedBox(
+              height: 50.h,
+            ),
             CustomAppBar(
               text: "Edit",
               icon: IconButton(
-                icon: const Icon(FontAwesomeIcons.check),
+                icon: Icon(
+                  FontAwesomeIcons.check,
+                  size: 22.dm,
+                ),
                 onPressed: () {
                   widget.note.title = title ?? widget.note.title;
                   widget.note.content = content ?? widget.note.content;
@@ -38,8 +44,8 @@ class _EditNoteState extends State<EditNote> {
                 },
               ),
             ),
-            const SizedBox(
-              height: 24,
+            SizedBox(
+              height: 24.h,
             ),
             CustomTextField(
               onChanged: (value) {
@@ -48,8 +54,8 @@ class _EditNoteState extends State<EditNote> {
               hint: widget.note.title,
               maxlines: 1,
             ),
-            const SizedBox(
-              height: 16,
+            SizedBox(
+              height: 16.h,
             ),
             CustomTextField(
               onChanged: (value) {
@@ -58,10 +64,10 @@ class _EditNoteState extends State<EditNote> {
               hint: widget.note.content,
               maxlines: 7,
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: 15.h,
             ),
-             EditNoteColorList(
+            EditNoteColorList(
               note: widget.note,
             ),
           ],
@@ -72,15 +78,14 @@ class _EditNoteState extends State<EditNote> {
 }
 
 class EditNoteColorList extends StatefulWidget {
-  const EditNoteColorList({Key? key, required this.note})
-      : super(key: key);
+  const EditNoteColorList({Key? key, required this.note}) : super(key: key);
   final NoteModel note;
   @override
   State<EditNoteColorList> createState() => _EditNoteColorListState();
 }
 
 class _EditNoteColorListState extends State<EditNoteColorList> {
-  late int currentIndex  ;
+  late int currentIndex;
 
   List<Color> colors = const [
     Color(0xffDD614A),
@@ -89,26 +94,27 @@ class _EditNoteColorListState extends State<EditNoteColorList> {
     Color(0xff7CC6FE),
     Color(0xff21A0A0),
   ];
-@override
+  @override
   void initState() {
-  currentIndex=colors.indexOf(Color(widget.note.color));
+    currentIndex = colors.indexOf(Color(widget.note.color));
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 28 * 2,
+      height: (28 * 2).h,
       child: ListView.builder(
           physics: const BouncingScrollPhysics(),
           itemCount: colors.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
+              padding: EdgeInsets.symmetric(horizontal: 4.w),
               child: GestureDetector(
                 onTap: () {
                   currentIndex = index;
-                  widget.note.color=colors[index].value;
+                  widget.note.color = colors[index].value;
                   setState(() {});
                 },
                 child: ColorItem(

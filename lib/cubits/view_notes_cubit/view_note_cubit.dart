@@ -13,6 +13,6 @@ class ViewNotesCubit extends Cubit<ViewNotesStates> {
     var notesBox = Hive.box<NoteModel>('notes_box');
     notes = notesBox.values.toList();
     emit(ViewNotesSuccess());
-   // return notes;
+    // return notes;
   }
 }

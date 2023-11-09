@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/cubits/view_notes_cubit/view_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/pages/edit_note_page.dart';
+
 class NoteWidget extends StatelessWidget {
   const NoteWidget({
-    super.key, required this.note,
+    super.key,
+    required this.note,
   });
-final NoteModel note;
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,41 +19,41 @@ final NoteModel note;
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) =>  EditNote(note: note),
+              builder: (context) => EditNote(note: note),
             ));
       },
       child: Container(
-        padding: const EdgeInsets.only(
-          left: 20,
-          top: 28,
-          bottom: 28,
+        padding: EdgeInsets.only(
+          left: 20.w,
+          top: 28.h,
+          bottom: 28.h,
         ),
         decoration: BoxDecoration(
           color: Color(note.color),
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(18.dm),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title:  Text(
+              title: Text(
                 note.title,
-                style: const TextStyle(
-                  fontSize: 26,
+                style: TextStyle(
+                  fontSize: 26.sp,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle:  Column(
+              subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 30.h,
                   ),
                   Text(
                     note.content,
-                    style: const TextStyle(
-                      fontSize: 18,
+                    style: TextStyle(
+                      fontSize: 18.sp,
                       color: Colors.black38,
                     ),
                   ),
@@ -61,22 +64,22 @@ final NoteModel note;
                   note.delete();
                   BlocProvider.of<ViewNotesCubit>(context).fetchNote();
                 },
-                icon: const Icon(
+                icon: Icon(
                   FontAwesomeIcons.trash,
                   color: Colors.black,
-                  size: 24,
+                  size: 24.dm,
                 ),
               ),
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: 30.h,
             ),
-             Padding(
-              padding:  const EdgeInsets.only(right: 24),
-              child:  Text(
+            Padding(
+              padding: EdgeInsets.only(right: 24.w),
+              child: Text(
                 note.date,
-                style: const TextStyle(
-                  fontSize: 16,
+                style: TextStyle(
+                  fontSize: 16.sp,
                   color: Colors.black38,
                 ),
               ),
