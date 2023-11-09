@@ -25,9 +25,7 @@ class CustomAppBar extends StatelessWidget {
             color: const Color(0xff3B3B3B),
             borderRadius: BorderRadius.circular(16.dm),
           ),
-          child: Center(
-            child: icon,
-          ),
+          child: icon,
         ),
       ],
     );

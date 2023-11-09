@@ -31,7 +31,10 @@ class _NotesViewBodyState extends State<NotesViewBody> {
           CustomAppBar(
             text: "Notes",
             icon: IconButton(
-              icon:  Icon(Icons.search_outlined,size: 26.dm,),
+              icon: Icon(
+                Icons.search_outlined,
+                size: 26.dm,
+              ),
               onPressed: () {},
             ),
           ),
